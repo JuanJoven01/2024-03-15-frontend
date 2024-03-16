@@ -12,7 +12,6 @@ function App() {
     <>
       <NavBar />
       {globalContext.renderComponent()}
-      <h1 className='bg-slate-500'>Hola mundo!</h1>
     </>
   )
 }

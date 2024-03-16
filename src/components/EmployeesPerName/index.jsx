@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext, useRef, useState } from "react"
 import axios from "axios"
 
 
@@ -8,19 +8,21 @@ import { GlobalContext } from "../../context/GlobalContext"
 import { EmployeesCards } from "../EmployeesCards"
 
 
-export const ViewAllEmployees = () => {
+export const EmployeesPerName = () => {
 
     const globalContext = useContext(GlobalContext)
     const url = globalContext.url
 
-    const [listOfEmployees, setListOfEmployees] = useState([])
+    const [listOfEmployeesByName, setListOfEmployeesByName] = useState([])
+
+    const finderNameRef = useRef(null)
 
     const getEmployees = async () => {
         try{
             globalContext.setLoading(true)
-            const response = await axios.get(`${url}/empleados/all`)
+            const response = await axios.get(`${url}/empleados/get/by-name?nombre=${finderNameRef.current.value}`)
             console.log(response.data)
-            setListOfEmployees(response.data)
+            setListOfEmployeesByName(response.data)
             globalContext.setLoading(false)
         }catch {
             globalContext.setLoading(false)
@@ -32,12 +34,22 @@ export const ViewAllEmployees = () => {
         <section>
             <Title text="VER TODOS LOS EMPLEADOS" />
             <p className="mt-5">Aqui puedes ver el listado completo de empleados solo con un boton:</p>
-            <div className="mt-5" onClick={() => getEmployees() }>
-                <FormButton text='Obtener Empleados' />
+            <div className="mt-5">
+                <form action="">
+                    <label htmlFor="">
+                        Inserte Nombre:
+                        <input ref={finderNameRef} type="text" className=" border-[1.5px] mx-2" />
+                    </label>
+                    <div onClick={() => getEmployees() }>
+                        <FormButton text='Obtener Empleados Por Nombre' />
+                    </div>
+                    
+                </form>
+                
             </div>
             <div className="mt-2 flex  items-center flex-col">
                 {
-                    listOfEmployees.map((item, index)=>(
+                    listOfEmployeesByName.map((item, index)=>(
                         <EmployeesCards key={index} nombre={item.nombre} id={item.id} fecha={item.fecha_ingreso} salario={item.salario} />
                     ))
                 }

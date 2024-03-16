@@ -5,22 +5,22 @@ import axios from "axios"
 import { Title } from "../Title"
 import { FormButton } from "../FormButton"
 import { GlobalContext } from "../../context/GlobalContext"
-import { EmployeesCards } from "../EmployeesCards"
+import { RequestsCards } from "../RequestsCards"
 
 
-export const ViewAllEmployees = () => {
+export const ViewAllRequests = () => {
 
     const globalContext = useContext(GlobalContext)
     const url = globalContext.url
 
-    const [listOfEmployees, setListOfEmployees] = useState([])
+    const [listOfRequests, setListOfRequests] = useState([])
 
     const getEmployees = async () => {
         try{
             globalContext.setLoading(true)
-            const response = await axios.get(`${url}/empleados/all`)
+            const response = await axios.get(`${url}/servicios/get`)
             console.log(response.data)
-            setListOfEmployees(response.data)
+            setListOfRequests(response.data)
             globalContext.setLoading(false)
         }catch {
             globalContext.setLoading(false)
@@ -37,15 +37,11 @@ export const ViewAllEmployees = () => {
             </div>
             <div className="mt-2 flex  items-center flex-col">
                 {
-                    listOfEmployees.map((item, index)=>(
-                        <EmployeesCards key={index} nombre={item.nombre} id={item.id} fecha={item.fecha_ingreso} salario={item.salario} />
+                    listOfRequests.map((item, index)=>(
+                        <RequestsCards key={index} codigo={item.codigo} descripcion={item.descripcion} resumen={item.resumen} empleado={item.empleado} />
                     ))
                 }
             </div>
-            
-        
-      
-      
     </section>
     )
 }

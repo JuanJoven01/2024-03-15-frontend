@@ -1,10 +1,10 @@
-
+import { CreateRequest } from "../../components/CreteNewRequest"
 
 const Requests = () => {
 
     return(
         <div>
-            <h1>Solicitudes</h1>
+            <CreateRequest />
         </div>
     )
 }

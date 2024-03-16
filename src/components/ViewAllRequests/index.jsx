@@ -18,7 +18,7 @@ export const ViewAllRequests = () => {
     const getEmployees = async () => {
         try{
             globalContext.setLoading(true)
-            const response = await axios.get(`${url}/servicios/get`)
+            const response = await axios.get(`${url}/solicitudes/get`)
             console.log(response.data)
             setListOfRequests(response.data)
             globalContext.setLoading(false)
@@ -30,15 +30,15 @@ export const ViewAllRequests = () => {
 
     return(
         <section>
-            <Title text="VER TODOS LOS EMPLEADOS" />
-            <p className="mt-5">Aqui puedes ver el listado completo de empleados solo con un boton:</p>
+            <Title text="VER TODAS LAS SOLICITUDES" />
+            <p className="mt-5">Aqui puedes ver el listado completo de las solicitudes solo con un boton:</p>
             <div className="mt-5" onClick={() => getEmployees() }>
-                <FormButton text='Obtener Empleados' />
+                <FormButton text='Obtener Solicitudes' />
             </div>
             <div className="mt-2 flex  items-center flex-col">
                 {
                     listOfRequests.map((item, index)=>(
-                        <RequestsCards key={index} codigo={item.codigo} descripcion={item.descripcion} resumen={item.resumen} empleado={item.empleado} />
+                        <RequestsCards key={index} id={item.id} codigo={item.codigo} descripcion={item.descripcion} resumen={item.resumen} empleado={item.Empleado.nombre} />
                     ))
                 }
             </div>

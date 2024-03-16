@@ -7,10 +7,13 @@ import { GlobalContext } from './context/GlobalContext'
 
 function App() {
   const globalContext =useContext(GlobalContext)
+  
+  
 
   return (
     <>
       <NavBar />
+      {globalContext.renderLoading()}
       {globalContext.renderComponent()}
     </>
   )

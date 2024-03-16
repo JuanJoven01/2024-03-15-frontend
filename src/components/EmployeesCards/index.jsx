@@ -1,5 +1,7 @@
 
-
+// Receives:
+// id, fecha, salario, nombre
+// to render a basic card with the info about the employees
 export const EmployeesCards = (props) => {
 
     return(

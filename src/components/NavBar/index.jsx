@@ -2,13 +2,10 @@ import { useContext } from 'react';
 
 import { GlobalContext } from '../../context/GlobalContext';
 
+// Navbar always rendered, uses the context to indicate what page render 
 const NavBar = () => {
 
     const globalContext = useContext(GlobalContext)
-
-
-    
-  
     return (
       <div>
         <nav className='flex justify-between border-b-2 pb-5'>

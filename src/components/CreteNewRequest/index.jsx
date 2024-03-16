@@ -4,7 +4,8 @@ import { Title } from "../Title"
 import { FormButton } from "../FormButton"
 import { GlobalContext } from "../../context/GlobalContext"
 import { useContext, useRef } from "react"
-
+// Element to creane a new request, use useRef to get the values in the form and send between the body via axios to the backend 
+// uses too axios to get an uid from the back and uses that to create the request
 export const CreateRequest = () => {
 
     const getUid  = async () => {

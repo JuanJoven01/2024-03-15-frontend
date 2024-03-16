@@ -1,3 +1,5 @@
+
+// An imported animation to render when GlobalContext know that is loading any from db
 export const Loading = () => {
 
     return(

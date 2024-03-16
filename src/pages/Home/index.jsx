@@ -1,5 +1,7 @@
 import { Title } from "../../components/Title"
 
+
+// His element just render a little of text to understand the page
 const Home = () => {
 
     return(

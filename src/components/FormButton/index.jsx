@@ -1,5 +1,7 @@
 
-
+// Receives
+// text
+// Render a button 
 export const FormButton = (props) => {
 
     function handleClick(event) {

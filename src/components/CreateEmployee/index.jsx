@@ -5,6 +5,7 @@ import { FormButton } from "../FormButton"
 import { GlobalContext } from "../../context/GlobalContext"
 import { useContext, useRef } from "react"
 
+// Element to creane a new employee, use useRef to get the values in the form and send between the body via axios to the backend 
 export const CreateEmployee = () => {
 
     const globalContext = useContext(GlobalContext)

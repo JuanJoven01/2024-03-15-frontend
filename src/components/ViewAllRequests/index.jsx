@@ -7,7 +7,8 @@ import { FormButton } from "../FormButton"
 import { GlobalContext } from "../../context/GlobalContext"
 import { RequestsCards } from "../RequestsCards"
 
-
+// uses axios to get all the requests in db
+// save the info in useContext array to render that mapping that and render with RequestsCards
 export const ViewAllRequests = () => {
 
     const globalContext = useContext(GlobalContext)
@@ -15,7 +16,7 @@ export const ViewAllRequests = () => {
 
     const [listOfRequests, setListOfRequests] = useState([])
 
-    const getEmployees = async () => {
+    const getRequests = async () => {
         try{
             globalContext.setLoading(true)
             const response = await axios.get(`${url}/solicitudes/get`)
@@ -32,7 +33,7 @@ export const ViewAllRequests = () => {
         <section>
             <Title text="VER TODAS LAS SOLICITUDES" />
             <p className="mt-5">Aqui puedes ver el listado completo de las solicitudes solo con un boton:</p>
-            <div className="mt-5" onClick={() => getEmployees() }>
+            <div className="mt-5" onClick={() => getRequests() }>
                 <FormButton text='Obtener Solicitudes' />
             </div>
             <div className="mt-2 flex  items-center flex-col">

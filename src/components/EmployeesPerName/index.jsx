@@ -7,7 +7,8 @@ import { FormButton } from "../FormButton"
 import { GlobalContext } from "../../context/GlobalContext"
 import { EmployeesCards } from "../EmployeesCards"
 
-
+//uses useRef to get the input when onClick button, 
+// uses axios to execute a query in db to get the users that coincide with the name in inoput
 export const EmployeesPerName = () => {
 
     const globalContext = useContext(GlobalContext)

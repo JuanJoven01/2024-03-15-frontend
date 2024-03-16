@@ -7,7 +7,8 @@ import { FormButton } from "../FormButton"
 import { GlobalContext } from "../../context/GlobalContext"
 import { EmployeesCards } from "../EmployeesCards"
 
-
+// uses axios to get all the eployees in db
+// save the info in useContext array to render that mapping that and render with EmployeesCard
 export const ViewAllEmployees = () => {
 
     const globalContext = useContext(GlobalContext)

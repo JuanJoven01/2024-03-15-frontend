@@ -3,6 +3,12 @@ import { GlobalContext } from "../../context/GlobalContext"
 import { useContext } from "react"
 import axios from "axios"
 
+
+// Receives:
+// id, descripcion, resumen, empleado (name)
+// to render a basic card with the info about the requests
+// create a button that contains the request id, in case to onClick
+// activates the funcion removeRequirement that delete the specific requirement using axios
 export const RequestsCards = (props) => {
 
     const globalContext = useContext(GlobalContext)

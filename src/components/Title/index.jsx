@@ -1,5 +1,7 @@
 
-
+//Receives:
+// text
+// just render a text with very basic styles
 export const Title = (props) => {
 
     return(

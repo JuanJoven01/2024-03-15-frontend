@@ -7,7 +7,7 @@ import { Loading } from "../../components/Loading";
 export const GlobalContext = createContext()
 
 export const GlobalProvider = (props) => {
-
+    // State and function  uses to know if are any charging async, if loading, renderLoading render the icon to identify charge
     const [loading, setLoading] = useState(false)
 
     const renderLoading = () => {
@@ -18,9 +18,10 @@ export const GlobalProvider = (props) => {
         }
         
     }
-
+    // principal url to make axios, if back change url here is where you need update path
     const url = 'https://two024-03-15-backend.onrender.com'
 
+    // The state, nav and function to manage navigation on the app
     const [route, setRoute] = useState(window.location.pathname);
   
     const navigate = (path) => {

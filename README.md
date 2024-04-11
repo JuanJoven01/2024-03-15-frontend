@@ -2,7 +2,6 @@
 
 technical test
 
-Online on : 'https://two024-03-15-frontend.onrender.com'
 
 ## To run in local
 
